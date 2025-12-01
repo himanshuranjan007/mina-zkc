@@ -38,7 +38,7 @@ User Deposit → Commitment → Merkle Tree → Event Emission
 **Circuit Design**:
 ```
 Input: Merkle Root (public)
-Private Inputs: Leaf, Siblings[32], IsLeft[32]
+Private Inputs: Leaf, Siblings[32], IsLeft[32]b
 Output: Bool (verification result)
 
 Circuit Logic:
