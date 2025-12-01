@@ -35,7 +35,7 @@ User Deposit → Commitment → Merkle Tree → Event Emission
 - **ZcashBridge Contract**: Smart contract with state management
 - **Proof Composition**: Enables batching multiple proofs
 
-**Circuit Design**:
+**Circuit Designs**:
 ```
 Input: Merkle Root (public)
 Private Inputs: Leaf, Siblings[32], IsLeft[32]b
