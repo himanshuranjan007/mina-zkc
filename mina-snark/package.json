@@ -8,7 +8,10 @@
     "dev": "bun run --watch src/index.ts",
     "build": "bun build src/index.ts --outdir dist --target bun",
     "test": "bun test",
-    "compile": "bun run src/compile.ts"
+    "compile": "bun run src/compile.ts",
+    "generate-keys": "bun run src/generate-keys.ts",
+    "deploy": "bun run src/deploy.ts",
+    "deploy:testnet": "MINA_NETWORK=berkeley bun run src/deploy.ts"
   },
   "dependencies": {
     "o1js": "^0.18.0"
