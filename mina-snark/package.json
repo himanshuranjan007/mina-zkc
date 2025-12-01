@@ -1,0 +1,21 @@
+{
+  "name": "mina-snark",
+  "version": "0.1.0",
+  "description": "Mina zkApp for Zcash bridge verification using recursive SNARKs",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "build": "bun build src/index.ts --outdir dist --target bun",
+    "test": "bun test",
+    "compile": "bun run src/compile.ts"
+  },
+  "dependencies": {
+    "o1js": "^0.18.0"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.0.0",
+    "typescript": "^5.3.3"
+  }
+}
+

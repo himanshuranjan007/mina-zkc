@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Bun
+      uses: oven-sh/setup-bun@v1
+      with:
+        bun-version: latest
+    
+    - name: Install dependencies
+      run: |
+        bun install
+        cd zcash-sim && bun install && cd ..
+        cd relayer && bun install && cd ..
+        cd mina-snark && bun install && cd ..
+    
+    - name: Run Zcash Simulator Tests
+      run: cd zcash-sim && bun test
+    
+    - name: Run Relayer Tests
+      run: cd relayer && bun test
+    
+    - name: Run Mina zkApp Tests
+      run: cd mina-snark && bun test
+    
+    - name: Start Zcash Simulator
+      run: |
+        cd zcash-sim
+        bun run dev &
+        sleep 5
+    
+    - name: Run E2E Tests
+      run: bun run test:e2e
+    
+    - name: Build All Workspaces
+      run: bun run build
+
+  lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Bun
+      uses: oven-sh/setup-bun@v1
+      with:
+        bun-version: latest
+    
+    - name: Install dependencies
+      run: bun install
+    
+    - name: Check TypeScript
+      run: |
+        cd zcash-sim && bun run build && cd ..
+        cd relayer && bun run build && cd ..
+        cd mina-snark && bun run build && cd ..
+

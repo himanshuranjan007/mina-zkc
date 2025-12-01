@@ -1,0 +1,44 @@
+{
+  "name": "zcash-mina-bridge-poc",
+  "version": "0.1.0",
+  "description": "Privacy-Preserving Bridge between Zcash and Mina Protocol",
+  "type": "module",
+  "workspaces": [
+    "zcash-sim",
+    "relayer",
+    "mina-snark"
+  ],
+  "scripts": {
+    "install:all": "bun install && cd zcash-sim && bun install && cd ../relayer && bun install && cd ../mina-snark && bun install",
+    "dev:zcash": "cd zcash-sim && bun run dev",
+    "dev:relayer": "cd relayer && bun run dev",
+    "dev:mina": "cd mina-snark && bun run dev",
+    "test": "bun test",
+    "test:zcash": "cd zcash-sim && bun test",
+    "test:relayer": "cd relayer && bun test",
+    "test:mina": "cd mina-snark && bun test",
+    "test:e2e": "bun run test:e2e.ts",
+    "build": "cd zcash-sim && bun run build && cd ../relayer && bun run build && cd ../mina-snark && bun run build",
+    "clean": "rm -rf node_modules zcash-sim/node_modules relayer/node_modules mina-snark/node_modules"
+  },
+  "keywords": [
+    "zcash",
+    "mina",
+    "zero-knowledge",
+    "privacy",
+    "bridge",
+    "cross-chain",
+    "zksnark",
+    "recursive-proofs"
+  ],
+  "author": "Zypherpunk",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/bun": "^1.0.0",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "bun": ">=1.0.0"
+  }
+}
+
