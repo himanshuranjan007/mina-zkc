@@ -31,7 +31,7 @@ User Deposit → Commitment → Merkle Tree → Event Emission
 **Purpose**: Smart contract on Mina that verifies Zcash proofs and mints wrapped tokens.
 
 **Key Components**:
-- **MerkleProofCircuit**: Recursive zkSNARK for Merkle proof verification
+- **MerkleProofCircuit**: Recursive zkSNARK for Merkle proofs verification
 - **ZcashBridge Contract**: Smart contract with state management
 - **Proof Composition**: Enables batching multiple proofs
 
