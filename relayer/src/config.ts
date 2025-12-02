@@ -45,12 +45,20 @@ export function loadConfig(): RelayerConfig {
   const zcashNetwork = process.env.ZCASH_NETWORK || 'testnet';
 
   // Warn if using mainnet
-  if (minaNetwork === 'mainnet') {
+  if (minaNetwork === 'mainnet' || zcashNetwork === 'mainnet') {
     console.log('');
     console.log('⚠️ '.repeat(20));
     console.log('');
-    console.log('   🚨 MAINNET MODE ENABLED 🚨');
-    console.log('   Real MINA will be used!');
+    if (minaNetwork === 'mainnet' && zcashNetwork === 'mainnet') {
+      console.log('   🚨 FULL MAINNET MODE 🚨');
+      console.log('   Real ZEC AND Real MINA will be used!');
+    } else if (minaNetwork === 'mainnet') {
+      console.log('   🚨 MINA MAINNET MODE 🚨');
+      console.log('   Real MINA will be used!');
+    } else {
+      console.log('   🚨 ZCASH MAINNET MODE 🚨');
+      console.log('   Real ZEC will be used!');
+    }
     console.log('');
     console.log('⚠️ '.repeat(20));
     console.log('');
