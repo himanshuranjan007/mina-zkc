@@ -10,8 +10,10 @@
     "test": "bun test",
     "compile": "bun run src/compile.ts",
     "generate-keys": "bun run src/generate-keys.ts",
+    "generate-keys:mainnet": "bun run src/generate-keys-mainnet.ts",
     "deploy": "bun run src/deploy.ts",
-    "deploy:testnet": "MINA_NETWORK=berkeley bun run src/deploy.ts"
+    "deploy:testnet": "MINA_NETWORK=berkeley bun run src/deploy.ts",
+    "deploy:mainnet": "bun run src/deploy-mainnet.ts"
   },
   "dependencies": {
     "o1js": "^0.18.0"
